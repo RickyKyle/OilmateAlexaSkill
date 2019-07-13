@@ -14,6 +14,7 @@ function httpGet() {
     
     const request = http.request(options, (response) => {
       response.setEncoding('utf8');
+      console.log(response.body); 
       let returnData = '';
 
       response.on('data', (chunk) => {
