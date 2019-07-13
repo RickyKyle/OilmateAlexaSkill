@@ -4,9 +4,12 @@ const http = require('http');
 function httpGet() {
   return new Promise(((resolve, reject) => {
     var options = {
-        host: 'api.icndb.com',
-        path: '/jokes/random',
+        host: 'http://159.65.93.37',
+        path: '/api/readings',
         method: 'GET',
+        headers: {
+          'x-acces-token' : 'oilamteaccesspass'
+        }
     };
     
     const request = http.request(options, (response) => {
@@ -53,7 +56,7 @@ const OilLevelHandler = {
     console.log(response);
 
     return handlerInput.responseBuilder
-            .speak("Okay. Here is what I got back from my request. " + response.value.joke)
+            .speak("Okay. Here is what I got back from my request. " + response[response.length - 1].reading)
             .reprompt("What would you like?")
             .getResponse();
   },
