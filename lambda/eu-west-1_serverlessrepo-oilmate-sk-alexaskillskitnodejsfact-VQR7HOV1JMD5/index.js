@@ -58,9 +58,10 @@ const OilLevelHandler = {
   },
   async handle(handlerInput) {
     const response = await httpGet();
+    var readingRounded = Math.floor(response.reading); 
     
     return handlerInput.responseBuilder
-            .speak("Okay. Here is what I got back from my request. " + response.reading)
+            .speak("You currently have approximately " + readingRounded + " litres of oil remaining.")
             .reprompt("What would you like?")
             .getResponse();
   },
