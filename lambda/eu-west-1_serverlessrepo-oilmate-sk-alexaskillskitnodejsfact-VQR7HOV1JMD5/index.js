@@ -9,7 +9,7 @@ function httpGet() {
         method: 'GET',
         headers: {
           'Content-Type' : 'application/json',
-          'x-acces-token' : 'oilamteaccesspass'
+          'x-access-token' : 'oilamteaccesspass'
         }
     };
     
