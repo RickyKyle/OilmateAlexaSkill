@@ -1,4 +1,34 @@
 const Alexa = require('ask-sdk');
+const http = require('http');
+
+function httpGet() {
+  return new Promise(((resolve, reject) => {
+    var options = {
+        host: 'api.icndb.com',
+        port: 443,
+        path: '/jokes/random',
+        method: 'GET',
+    };
+    
+    const request = http.request(options, (response) => {
+      response.setEncoding('utf8');
+      let returnData = '';
+
+      response.on('data', (chunk) => {
+        returnData += chunk;
+      });
+
+      response.on('end', () => {
+        resolve(JSON.parse(returnData));
+      });
+
+      response.on('error', (error) => {
+        reject(error);
+      });
+    });
+    request.end();
+  }));
+}
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -18,12 +48,15 @@ const OilLevelHandler = {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest'
       && handlerInput.requestEnvelope.request.intent.name === 'OilLevelIntent';
   },
-  handle(handlerInput) {
-    const speakOutput = 'Hello Ricky, you have 4 litres of oil left.';
+  async handle(handlerInput) {
+    const response = await httpGet();
+    
+    console.log(response);
 
     return handlerInput.responseBuilder
-      .speak(speakOutput)
-      .getResponse();
+            .speak("Okay. Here is what I got back from my request. " + response.value.joke)
+            .reprompt("What would you like?")
+            .getResponse();
   },
 };
 
