@@ -14,16 +14,20 @@ function httpGet() {
     };
     
     const request = http.request(options, (response) => {
-      response.setEncoding('utf8');
-      console.log(response); 
-      let returnData = '';
+      console.log("Status code: " + response.statusCode);
+      var responseData = "";
 
       response.on('data', (chunk) => {
-        returnData += chunk;
+        responseData += chunk;
       });
 
       response.on('end', () => {
-        resolve(JSON.parse(returnData));
+        console.log(responseData); 
+        var returnArray = JSON.parse(responseData); 
+        console.log(returnArray);
+        var returnReading = returnArray[returnArray.length - 1];
+        console.log(returnReading); 
+        resolve(returnReading);
       });
 
       response.on('error', (error) => {
@@ -55,10 +59,8 @@ const OilLevelHandler = {
   async handle(handlerInput) {
     const response = await httpGet();
     
-    console.log(response);
-
     return handlerInput.responseBuilder
-            .speak("Okay. Here is what I got back from my request. " + response[response.length - 1].reading)
+            .speak("Okay. Here is what I got back from my request. " + response.reading)
             .reprompt("What would you like?")
             .getResponse();
   },
