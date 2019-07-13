@@ -1,0 +1,21 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "serverlessrepo-oilmate-sk-alexaskillskitnodejsfact-VQR7HOV1JMD5",
+          "sourceDir": "lambda/eu-west-1_serverlessrepo-oilmate-sk-alexaskillskitnodejsfact-VQR7HOV1JMD5"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "locales": {
+        "en-GB": {
+          "name": "OilmateAlexaSkill"
+        }
+      }
+    }
+  }
+}
