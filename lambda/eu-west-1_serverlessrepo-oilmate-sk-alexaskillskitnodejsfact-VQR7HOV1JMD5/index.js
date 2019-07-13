@@ -4,7 +4,7 @@ const http = require('http');
 function httpGet() {
   return new Promise(((resolve, reject) => {
     var options = {
-        host: 'http://159.65.93.37',
+        host: '159.65.93.37',
         path: '/api/readings',
         method: 'GET',
         headers: {
