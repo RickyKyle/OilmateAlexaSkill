@@ -8,13 +8,14 @@ function httpGet() {
         path: '/api/readings',
         method: 'GET',
         headers: {
+          'Content-Type' : 'application/json',
           'x-acces-token' : 'oilamteaccesspass'
         }
     };
     
     const request = http.request(options, (response) => {
       response.setEncoding('utf8');
-      console.log(response.body); 
+      console.log(response); 
       let returnData = '';
 
       response.on('data', (chunk) => {
