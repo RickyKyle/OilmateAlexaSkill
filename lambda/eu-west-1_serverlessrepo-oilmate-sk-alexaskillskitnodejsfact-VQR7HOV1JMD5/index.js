@@ -5,7 +5,6 @@ function httpGet() {
   return new Promise(((resolve, reject) => {
     var options = {
         host: 'api.icndb.com',
-        port: 443,
         path: '/jokes/random',
         method: 'GET',
     };
