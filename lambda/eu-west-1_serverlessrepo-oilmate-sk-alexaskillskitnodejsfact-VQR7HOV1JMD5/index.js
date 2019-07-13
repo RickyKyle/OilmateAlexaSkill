@@ -19,7 +19,7 @@ const OilLevelHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'OilLevelIntent';
   },
   handle(handlerInput) {
-    const speakOutput = 'Hello Codecademy';
+    const speakOutput = 'Hello Ricky, you have 3 litres of oil left.';
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
