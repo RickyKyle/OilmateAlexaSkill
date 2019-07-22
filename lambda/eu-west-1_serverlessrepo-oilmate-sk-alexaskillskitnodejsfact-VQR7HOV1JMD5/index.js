@@ -5,7 +5,7 @@ function httpGet() {
   return new Promise(((resolve, reject) => {
     var options = {
         host: '159.65.93.37',
-        path: '/api/readings',
+        path: '/api/readings/user/1',
         method: 'GET',
         headers: {
           'Content-Type' : 'application/json',
