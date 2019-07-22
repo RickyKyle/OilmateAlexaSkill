@@ -9,7 +9,7 @@ function httpGet() {
         method: 'GET',
         headers: {
           'Content-Type' : 'application/json',
-          'x-access-token' : 'oilmateaccesspass'
+          'x-access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInVzZXJuYW1lIjoiUmlja3lLeWxlIiwiaWF0IjoxNTYzNzM0ODA1fQ.w_Ik97ldaX_9CmDR7kZouw8_s5acTxlyb0Fn4IsIwg8'
         }
     };
     
@@ -62,7 +62,7 @@ const OilLevelHandler = {
     
     return handlerInput.responseBuilder
             .speak("You currently have approximately " + readingRounded + " litres of oil remaining.")
-            .reprompt("What would you like?")
+            .reprompt("Do you have another question?")
             .getResponse();
   },
 };
