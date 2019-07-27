@@ -105,7 +105,7 @@ const CancelAndStopHandler = {
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
   },
   handle(handlerInput) {
-    const speakOutput = 'Goodbye!';
+    const speakOutput = 'Goodbye, I hope you enjoyed using oil mate.';
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
